@@ -1,7 +1,17 @@
 os: windows
 language: rust
 rust:
-  - stable
+- stable
 script:
-  - cargo build --verbose --all
-  - cargo test --verbose --all
+- cargo build --verbose --all
+- cargo test --verbose --all
+deploy:
+  provider: releases
+  api_key:
+    secure: I9cjTrxv5FoGkgGgwYXYyBBUX3xlNRLUVbgnyWi19O3sISqfY06ge2haNFzKCT6r6ecZVWDxR2WW2OxoWwRYNyAfDTHTHw2BD2XYOo0Mm4rlmd2bwfkv205it4pYjHC+FAb0DWLWp797WgwjeEaqNq+pVhyvGhwr5jbiTeCy2MNed5vpKWvc/C+pubZ09xxgu9W2981nT9Q0izKGF627MmLzjCoUdOu3jsS5awAroWLU5n45N2WPifEyPgHILlvWKeYCStl/VJGSTBgtVP5R40nvVefGw3nEz60AuRjfjsmt7B6U8PyE8/4ggszRFbkBt/fNSvaTjELE/WaEEi+OKPhLFYlsUTkl+LgfnZSUFhSs9o0Pqz2rWpBjw4a5dN3J4aipgPMlMKuW4wzxE09DKKj+bZnDICqKKO8O3MPuGMb0Af1YmpoKKPcjYKeOWM3xkQRNg+xhFkm5N2oI6wBPdmVwPALIbkR9lS69wd4hfd9lOkZAX2SJec+1i3p0icJ2qhw41ghf7q6+COiMZTQxf0l3JyRkUBsKxdGAWvfV1zk3t5wMz2rzhj928G3o8dK//tyd/+qY1zRzLGXMpdNum3SnBwl0dSy8m8Ay9aXzCT+o3G4AuwUawu0Y0byoKLoJ80mDvxAaNimLZf/n3xie+w7w64G6TRXC5rwEf1eqT6k=
+  file_glob: true
+  file: "target/release/gs"
+  on:
+    tags: true
+env:
+  global:
