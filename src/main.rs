@@ -52,9 +52,9 @@ fn main() {
         }));
     });
 
-    // start web view in current thread
-    // and point it to a port that was bound
-    // to the server
+    // // start web view in current thread
+    // // and point it to a port that was bound
+    // // to the server
     web_view::builder()
         .title("webview yew todomvc")
         .content(Content::Url(format!("http://127.0.0.1:{}", port)))
