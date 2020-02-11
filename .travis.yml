@@ -3,18 +3,18 @@ language: rust
 rust:
 - stable
 script:
-- cargo build --release --verbose
+- cargo build --release --target x86_64-pc-windows-gnu --verbose
 - ls target/release
 deploy:
   api_key:
     secure: T3iYP51A8XGQoa88HZvtheo1/dOsHBSGoyd1ivd1OOQTYIqdMO5FAcnaxjghQNFKkTYFVz0n9wepl7GzrzS8yTIZuqNj5p17jXX1pk/SlbUxyuuf25ByIEPCqK8eS0bHoj5tbq4sPyzfEkriumuH+RkGLA0cN7C/6O+T9azD2ZjCIlFhY2AwJPUom8B07FbbRsO5mdIOZq/qxXJdVw2itVKh8ElgLWw8W8QuuAjqtQWzH9oxCf3SnzRYg+5Rd1oqiteyeLjXYQtnJ6d55K5Cl2kwEJIi1256VUAbUL1LWpjy5bfdAkHfE+jf9R4qxiI/8beEW8fIizZYJC2IgDKBrNmvhbsAMy84aaRxG/eJrNOdI0q2yts3qP2GNxP6OhVu8zBv0v5Hg/uEP56cc/UBEpP9rJUp1B5extfI1L3et8z7u5r72HKXpxMz1sGr3gHkr8JWCx3ZEtrEfQTtPKyV9Eckn7jQVZ3nKzB9egtD+FylSTPwKvw/RJBtG6Wj3hZytjuexJZNVdUJqN1dljQlS4eVUN2cu9mYZ2IFST71JIFyrpsiKsou8JM5hfyQz/aq2RwuR/q5ca/QDP+/2Mpz51oboYdCfFg8iFV56rLxAeciN5sEnV1D69g/JH3LzwMrfS/FmLrra7Xv43KkE2FZUI/fNjDA+WJPF+GPJ702FWc=
   file_glob: true
   file:
-    - "target/release/gs.exe"
+    - "target/x86_64-pc-windows-gnu/release/gs.exe"
     - "README.md"
   skip_cleanup: true
   provider: releases
   on:
     tags: true
 env:
-  global:
+  - ARCH=x86_64
