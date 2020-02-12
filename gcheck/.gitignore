@@ -1,0 +1,8 @@
+*.bak
+*.pyc
+venv/*
+.idea/*
+.vscode/*
+_log_/*
+html/*
+*.db3

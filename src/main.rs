@@ -1,9 +1,11 @@
 extern crate web_view;
 
+use std::process::Command;
+use std::thread;
 use web_view::*;
 
 fn main() {
-    let size = (700, 400);
+    let size = (1200, 900);
     let resizable = true;
     let debug = false;
     let titlebar_transparent = true;
@@ -25,9 +27,16 @@ fn main() {
     css = r#""#,
     js = include_str!("../www/dist.js"));
 
+    thread::spawn(|| {
+        Command::new("cmd")
+            .args(&["/C", "cd gcheck && app.exe"])
+            .output()
+            .expect("failed to execute process");
+    });
+
     run(
         "",
-        Content::Url(format!("http://www.baidu.com")),
+        Content::Url(format!("http://127.0.0.1:8000")),
         Some(size),
         resizable,
         debug,
