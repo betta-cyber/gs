@@ -9,5 +9,5 @@ edition = "2018"
 [dependencies]
 web-view = { git = "https://github.com/huytd/web-view" }
 hyper="0.12"
-rust-embed = "5.1.0"
+rust-embed = "6.3.0"
 futures = "0.1"
